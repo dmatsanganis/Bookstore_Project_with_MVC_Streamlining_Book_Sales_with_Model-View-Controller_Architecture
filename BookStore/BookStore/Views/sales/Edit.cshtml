@@ -1,0 +1,69 @@
+﻿@model BookStore.Models.sales
+
+@{
+    ViewBag.Title = "Επεξεργασία Στοιχείων Παραγγελίας";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.stor_id)
+    @Html.HiddenFor(model => model.ord_num)
+    @Html.HiddenFor(model => model.title_id)
+
+
+    <body style=" background: #dfe0d9;">
+        <div class="container pt-5">
+            <div class="row justify-content-center" style="position:sticky; top:auto;">
+                <a style="padding-right:6px;" href="@Url.Action("/Index")" ; title="Επιστορφή"><img style=" width:24px;  height:24px;" src="/assets/img/return.svg" /></a>
+                <h3>Επεξεργασία</h3>
+
+            </div>
+
+            <div class="row text-white justify-content-center" style="        background-color: #002b54;font-size: 18px; border-radius: 1em">
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label> @Html.LabelFor(model => model.ord_date)</label>
+                        @Html.EditorFor(model => model.ord_date, new { htmlAttributes = new { @Value = @Model.ord_date.ToString("yyyy-MM-dd"), @class = "form-control", @type = "date" } })
+                        @Html.ValidationMessageFor(model => model.ord_date, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label> @Html.LabelFor(model => model.qty)</label>
+                        @Html.EditorFor(model => model.qty, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.qty, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label> @Html.LabelFor(model => model.payterms)</label>
+                        @Html.EditorFor(model => model.payterms, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.payterms, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="container d-lg-flex  justify-content-end" style=" border-radius: 1em;">
+                <div class="p-2 m-2">
+                    <button id="return" class="btn btn-outline-warning  ladda-button" type="button" ladda="loading " onclick=" location.href='@Url.Action("Index")'">
+                        <span class="ladda-label">
+                            <span>ΕΠΙΣΤΡOΦΗ</span>
+                        </span>
+                    </button>
+
+                    <input type="submit" value="ΑΠΟΘΗΚΕΥΣΗ" class="btn btn-primary ladda-button" style="color:black" />
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

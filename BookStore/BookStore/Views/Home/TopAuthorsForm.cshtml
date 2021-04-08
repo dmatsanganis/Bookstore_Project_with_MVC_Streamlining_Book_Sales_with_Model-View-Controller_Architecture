@@ -1,0 +1,38 @@
+﻿@model BookStore.Models.sales
+@{
+    ViewBag.Title = "Αναζήτηση Κορυφαίων Βιβλίων";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron"style =" background: #dfe0d9;">
+    <h4 class="display-4" style="text-align: center">Κορυφαίοι Συγγραφείς</h4>
+    <p class="lead" style="text-align: center">Συμπληρώστε τα παρακάτω πεδία για να ανακτήσετε τα στοιχεία των συγγραφέων που έχουν τις περισσότερες πωλήσεις σε ένα χρονικό διάστημα!</p>
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("TopAuthors", "Home", FormMethod.Get))
+            {
+                <form>
+                    <fieldset>
+                        <div class="form-group" align="center">
+                            <h6 class="display-6" style="text-align: center">Βρείτε τους κουρυφαίους συγγραφείς για ένα συγκεκριμένο διάστημα</h6>
+                            <div class="form-group">
+                                <label>Αριθμός Συυγραφέων:</label>                              
+                                <input type="number" min="1" class="form-control" name="min_sales" id="Top" placeholder="# Συγγραφέων " style="border: 1.5px solid white">
+                            </div>
+                            <div class="form-group">
+                                <label>Από:</label>
+                                <input type="date" class="form-control" name="date_from" id="DateFrom"  style="border: 1.5px solid white">
+                            </div>
+                            <div class="form-group">
+                                <label>Έως:</label>
+                                <input type="date" class="form-control" name="date_to" id="DateΤο" style="border: 1.5px solid white">
+                            </div>        
+                            <button type="submit" class="btn text-white" style="background-color:goldenrod;" onsubmit="return checkInp()" value="TopAuthors">ΥΠΟΒΟΛΗ</button>
+                        </div>
+                    </fieldset>
+                </form>}
+        </div>
+    </div>
+</div>
+    

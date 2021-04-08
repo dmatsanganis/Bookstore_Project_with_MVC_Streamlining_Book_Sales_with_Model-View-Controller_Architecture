@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Αρχική";
+}
+
+<header class="masthead" style="background-image: url('/assets/img/bookstore_background_main.jpg');background-size: cover; background-attachment:scroll; background-position:50%; text-align:center; display:block">
+    <div class="container">
+        <div class="intro-text" style="padding-top: 150px; padding-bottom: 100px;">
+            <div class="intro-lead-in"><span style="background-color: rgba(72,56,56,0.5);">Καλωσήρθατε,</span></div>
+            <div class="text-center intro-lead-in"><span class="text-left" style="font-size: 22px;background-color: rgba(72,56,56,0.5);">Επιλέξτε μία απο τις παρακάτω επιλογές και αναζητείστε, πρόσφατες παραγγελίες και τα κορυφαία, σε πωλήσεις, βιβλία μας!</span></div>
+            <div class="text-center d-inline-block intro-heading text-uppercase">
+                <button class="btn btn-primary text-center" type="button" style="font-family: 'Roboto Slab', serif;font-size: 22px;"  onclick=" location.href='@Url.Action("TopAuthorsForm")'">Κορυφαίοι Συγγραφείς</button>
+                <div class="text-justify intro-heading text-uppercase"><button class="btn btn-primary" type="button" style="font-family: 'Roboto Slab', serif;font-size: 22px;" onclick=" location.href='@Url.Action("OrderForm")'">Αναζήτηση Παραγγελίας</button></div>
+            </div>
+        </div>
+    </div>
+</header>
+<header class="masthead" style="background-color: #dfe0d9;">
+    <div class="container" style="background-color: #dfe0d9; height: 1400px;width: 3919px; padding-left:inherit">
+        <div class="intro-text " style="font-family: 'Alegreya SC', serif;font-size: 93px;height: 1000px;width: 3919px;margin: 0px;padding: 80px;text-align: center; background-color: #dfe0d9; padding-bottom: 100px;">
+            <div>
+                <h1 class="text-justify" style="font-weight: 600;color: rgb(136,137,139);font-family: 'Roboto Slab', serif;text-align: center;margin: 20px;height: 149px;padding: -107px;">
+                    <p><u><i>Μερικά αγαπημένα μας γνωμικά για τα Βιβλία</i></u></p>
+                </h1>
+            </div>
+            <div class="d-xl-flex intro-text" style="font-family: 'Alegreya SC', serif;font-size: 93px;height: 300px;width: 1082px;margin: 0px;padding: 0px;text-align: left;">
+                <h2 class="text-justify" style="font-weight: 600;color: rgb(136,137,139);font-family: 'Roboto Slab', serif;text-align: right;margin: 20px;height: 149px;padding: -107px;">
+                    <strong><em>“</em></strong><em>Books are the plane, and the train, and the road. They are the destination, and the journey.  They are home.&quot;                                                                                                    ~ </em>Anna Quindlen<br />
+                </h2>
+                <img class="img-thumbnail d-xl-flex" src="/assets/img/book_quotes2.jpg" style="width: 320px;height: 240px;color: rgba(255,255,255,0);background: transparent;text-align: right;" />
+            </div>
+
+
+
+            <div class="d-xl-flex intro-text" style="font-family: 'Alegreya SC', serif;font-size: 93px;height: 300px;width: 1082px;margin: 0px;padding: 0px;text-align: center;">
+                <img class="img-thumbnail d-xl-flex" src="/assets/img/book_quotes1.jpeg" style="width: 320px;height: 240px;color: rgba(255,255,255,0);background: transparent;text-align: right;" />
+                <h2 class="text-justify" style="font-weight: 600;color: rgb(136,137,139);font-family: 'Roboto Slab', serif;text-align: right;margin: 20px;height: 149px;padding: -107px;">
+                    <em>“Books are the quietest and most constant of friends; they are the most accessible and wisest of counsellors, and the most patient of teachers.”                                                                                                                                 ~ </em><strong>Charles W. Eliot</strong><br />
+                </h2>
+            </div>
+
+
+
+            <div class="d-xl-flex intro-text" style="font-family: 'Alegreya SC', serif;font-size: 93px;height: 300px;width: 1082px;margin: 0px;padding: 0px;text-align: center;">
+                <h2 class="text-justify" style="font-weight: 600;color: rgb(136,137,139);font-family: 'Roboto Slab', serif;text-align: right;margin: 20px;height: 149px;padding: -107px;">
+                    <strong><em>“ </em></strong><em>I do believe something very magical can       happen when you read a good book.&quot;                                                                                                                                                                        ~ </em><strong>J.K. Rowling</strong><br />
+                </h2><img class="img-thumbnail d-xl-flex" src="/assets/img/book_quotes3.jpg" style="width: 320px;height: 240px;color: rgba(255,255,255,0);background: transparent;text-align: right;" />
+            </div>
+
+
+
+        </div>
+    </div>
+</header>

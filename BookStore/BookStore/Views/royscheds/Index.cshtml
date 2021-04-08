@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BookStore.Models.roysched>
+
+@{
+    ViewBag.Title = "Royscheds";
+}
+<div class="container">
+    <div class="card-deck text-center shadow-none justify-content-center" style="margin-top: 5%;margin-bottom: 0%;margin-right: 0px;margin-left: 0px;">
+        <div class="card-deck shadow-none" style="margin-top: 2%;margin-bottom: 10%;margin-right: 0px;margin-left: 0px;">
+            <div class="row">
+                <div class="col">
+                    <h2>Royscheds</h2>
+                </div>
+            </div>
+            <table class="table table-striped" style="border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;">
+                <thead class="class=" text-center" style="background-color: #002b54;
+        color: rgb(255,255,255);">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.lorange)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.hirange)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.royalty)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.titles.title)
+                        </th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.lorange)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.hirange)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.royalty)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.titles.title)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

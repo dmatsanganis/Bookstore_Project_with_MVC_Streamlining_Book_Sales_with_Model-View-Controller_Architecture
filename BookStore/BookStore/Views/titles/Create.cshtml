@@ -1,0 +1,123 @@
+﻿@model BookStore.Models.titles
+
+@{
+    ViewBag.Title = "Δημιουργία Τίτλου Βιβλίου";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="container pt-5">
+            <div class="row justify-content-center" style="position:sticky; top:auto">
+                <a style="padding-right:6px;" href="@Url.Action("/Index")" ; title="Επιστορφή"><img style=" width:24px;  height:24px;" src="/assets/img/return.svg" /></a>
+
+                <h3>Δημιουργία</h3>
+
+            </div>
+
+            <div class="container d-lg-flex text-white" style="background-color: #002b54;  font-size:18px;">
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label> @Html.LabelFor(model => model.title_id)</label>
+                        @Html.EditorFor(model => model.title_id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.title_id, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label> @Html.LabelFor(model => model.title)</label>
+                        @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label> @Html.LabelFor(model => model.type)</label>
+                        @Html.EditorFor(model => model.type, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label> @Html.LabelFor(model => model.pub_id)</label>
+                        @Html.DropDownList("pub_id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.pub_id, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label> @Html.LabelFor(model => model.price)</label>
+                        @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="container d-lg-flex text-white" style="background-color: #002b54; font-size:18px">
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label>@Html.LabelFor(model => model.advance)</label>
+                        @Html.EditorFor(model => model.advance, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.advance, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label>@Html.LabelFor(model => model.royalty)</label>
+                        @Html.EditorFor(model => model.royalty, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.royalty, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label>@Html.LabelFor(model => model.ytd_sales)</label>
+                        @Html.EditorFor(model => model.ytd_sales, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ytd_sales, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label>@Html.LabelFor(model => model.notes)</label>
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.notes, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.notes, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label>@Html.LabelFor(model => model.pubdate)</label>
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.pubdate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                            @Html.ValidationMessageFor(model => model.pubdate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container d-lg-flex  justify-content-end" style=" border-radius: 1em;">
+                <div class="p-2 m-2">
+                    <button id="return" class="btn btn-outline-warning  ladda-button" type="button" ladda="loading " onclick=" location.href='@Url.Action("Index")'">
+                        <span class="ladda-label">
+                            <span>ΕΠΙΣΤΡΟΦΗ</span>
+                        </span>
+                    </button>
+
+                    <input type="submit" value="ΔΗΜΙΟΥΡΓΙΑ" class="btn btn-primary ladda-button" style="color:black" />
+                </div>
+            </div>
+        </div>
+}
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

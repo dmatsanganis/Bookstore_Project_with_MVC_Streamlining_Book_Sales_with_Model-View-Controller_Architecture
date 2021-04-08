@@ -1,0 +1,64 @@
+﻿@model BookStore.Models.jobs
+
+@{
+    ViewBag.Title = "Δημιουργία Θέσης Εργασίας";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+        <div class="container pt-5">
+            <div class="row justify-content-center" style="position:sticky; top:auto">
+                <a style="padding-right:6px;" href="@Url.Action("/Index")" ; title="Επιστορφή"><img style=" width:24px;  height:24px;" src="/assets/img/return.svg" /></a>
+
+                <h3>Δημιουργία</h3>
+
+            </div>
+
+            <div class="row justify-content-center text-white" style="background-color: #002b54; border-radius:1em; font-size:18px; padding-left:0px; padding-right:0px">
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label> @Html.LabelFor(model => model.job_desc)</label>
+                        @Html.EditorFor(model => model.job_desc, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.job_desc, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label> @Html.LabelFor(model => model.min_lvl)</label>
+                        @Html.EditorFor(model => model.min_lvl, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.min_lvl, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label> @Html.LabelFor(model => model.max_lvl)</label>
+                        @Html.EditorFor(model => model.max_lvl, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.max_lvl, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>     
+            </div>
+            
+
+            <div class="container d-lg-flex justify-content-end" style=" border-radius: 1em;">
+                <div class="p-2 m-2">
+                    <button id="return" class="btn btn-outline-warning  ladda-button" type="button" ladda="loading " onclick=" location.href='@Url.Action("Index")'">
+                        <span class="ladda-label">
+                            <span>ΕΠΙΣΤΡΟΦΗ</span>
+                        </span>
+                    </button>
+
+                    <input type="submit" value="ΔΗΜΙΟΥΡΓΙΑ" class="btn btn-primary ladda-button" style="color:black" />
+                </div>
+            </div>
+        </div>
+}
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

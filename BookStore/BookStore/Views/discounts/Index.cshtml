@@ -1,0 +1,103 @@
+﻿@model IEnumerable<BookStore.Models.discounts>
+
+@{
+    ViewBag.Title = "Προσφορές";
+}
+ <div class="container">
+            <div class="card-deck text-center shadow-none justify-content-center" style="margin-top: 5%;margin-bottom: 0%;margin-right: 0px;margin-left: 0px;">
+                <div class="card-deck shadow-none" style="margin-top: 2%;margin-bottom: 10%;margin-right: 0px;margin-left: 0px;">
+                    <div class="row">
+                        <div class="col">
+                            <h2>Εκπτώσεις</h2>
+                        </div>                       
+                    </div>
+                    <table class="table table-striped" style="border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;">
+                        <thead class="class=" text-center" style="background-color: #002b54;
+        color: rgb(255,255,255);">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.discounttype)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.lowqty)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.highqty)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.stores.stor_name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.discount)
+                                </th>
+
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+                    <tr>
+                        <td>
+                            @if (item.lowqty == null)
+                            {
+                                <p>---</p>
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.discounttype)
+                            }
+
+                        </td>
+                        <td>
+                            @if (item.lowqty == null)
+                            {
+                                <p>---</p>
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.lowqty)
+                            }
+
+                        </td>
+                        <td>
+                            @if (item.highqty == null)
+                            {
+                                <p>---</p>
+                            }
+                            else
+                            {
+
+                                @Html.DisplayFor(modelItem => item.highqty)
+                            }
+                        </td>
+                        <td>
+                            @if (item.stor_id == null)
+                            {
+                                <p>---</p>
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.stores.stor_name)
+                            }
+                        </td>
+                        <td>
+                        @if (item.lowqty == null)
+                        {
+                            <p>---</p>
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.discount)
+                        }
+
+                        </td>
+
+                    </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>

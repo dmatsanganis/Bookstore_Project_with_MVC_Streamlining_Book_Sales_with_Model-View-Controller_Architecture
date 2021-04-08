@@ -1,0 +1,77 @@
+﻿@model BookStore.Models.pub_info
+
+@{
+    ViewBag.Title = "Δημιουργία";
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@using (Html.BeginForm("Create", "pub_info", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <body style=" background: #dfe0d9;">
+        <div class="container pt-5">
+            <div class="row justify-content-center" style="position:sticky; top:auto">
+                <a style="padding-right:6px;" href="@Url.Action("/Index")" ; title="Επιστορφή"><img style=" width:24px;  height:24px;" src="/assets/img/return.svg" /></a>
+
+                <h3>Δημιουργία</h3>
+
+            </div>
+
+            <div class="container d-lg-flex text-white justify-content-center" style="background-color: #002b54;  font-size:18px;">
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label> @Html.LabelFor(model => model.pub_id)</label>
+                        @Html.DropDownList("pub_id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.pub_id, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label> @Html.LabelFor(model => model.logo, htmlAttributes: new { @class = "control-label col-md-2" })</label>
+                        <div class="col-md-10">
+                            @{ 
+                                <input type="file" name="imageFile" onchange="previewFile()" required>
+
+                            }
+                            @Html.ValidationMessageFor(model => model.logo, "")
+                            @Html.HiddenFor(model => model.logo)
+                        </div>
+                    </div>
+
+                   
+                </div>
+                <div class="p-2 m-2">
+                    <div class="form-group">
+                        <label> @Html.LabelFor(model => model.pr_info)</label>
+                        @Html.EditorFor(model => model.pr_info, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pr_info, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+               
+
+            </div>
+            <div class="container d-lg-flex  justify-content-end" style=" border-radius: 1em;">
+                <div class="p-2 m-2">
+                    <button id="return" class="btn btn-outline-warning  ladda-button" type="button" ladda="loading " onclick=" location.href='@Url.Action("Index")'">
+                        <span class="ladda-label">
+                            <span>ΕΠΙΣΤΡΟΦΗ</span>
+                        </span>
+                    </button>
+
+                    <input type="submit" value="ΔΗΜΙΟΥΡΓΙΑ" class="btn btn-primary ladda-button" style="color:black" />
+                </div>
+            </div>
+        </div>
+
+    </body>
+}
+
+

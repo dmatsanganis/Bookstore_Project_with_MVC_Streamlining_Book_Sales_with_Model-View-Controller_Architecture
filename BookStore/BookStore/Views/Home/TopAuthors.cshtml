@@ -1,0 +1,102 @@
+﻿@model IEnumerable<BookStore.Models.topauthors>
+@{
+    ViewBag.Title = "Κορυφαία Βιβλία";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<body style="background: #dfe0d9;">
+    <header>
+
+
+        <div class="container">
+            <div class="card-deck text-center shadow-none justify-content-center" style="margin-top: 5%;margin-bottom: 0%;margin-right: 0px;margin-left: 0px;">
+                <div class="card-deck shadow-none" style="margin-top: 2%;margin-bottom: 10%;margin-right: 0px;margin-left: 0px;">
+                    <div class="row">
+                        <div class="col">
+                            <h2>Κορυφαίοι Συγγραφείς</h2>
+                        </div>                      
+                    </div>
+                    <table class="table table-striped" style="border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;">
+                        <thead class="class=" text-center" style="background-color: #002b54;
+        color: rgb(255,255,255);">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.author.au_lname)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.author.au_fname)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.author.phone)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.author.address)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.author.city)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.author.state)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.author.zip)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.author.contract)
+                                </th>
+                                <th>
+                                    Πωλήσεις
+                                </th>
+
+                            </tr>
+                        </thead>
+                                        
+                        @foreach (var item in Model)
+                        { 
+                            
+                    <tr>
+                        @if (item == null)
+                        {
+                            
+                        }
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.author.au_lname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.author.au_fname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.author.phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.author.address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.author.city)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.author.state)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.author.zip)
+                        </td>
+                        <td align="center">
+                            @Html.DisplayFor(modelItem => item.author.contract)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sales)
+                        </td>
+                    </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>

@@ -1,0 +1,88 @@
+﻿@model BookStore.Models.titles
+
+@{
+    ViewBag.Title = "Διαγραφή Τίτλου Βιβλίου";
+}
+    <div class="card-deck shadow-none">
+        <div class="container pt-5">
+            <div class="row justify-content-center" style="position:sticky; top:auto">
+                <a style="padding-right:6px;" href="@Url.Action("/Index")" ; title="Επιστορφή"><img style=" width:24px;  height:24px;" src="/assets/img/return.svg" /></a>
+
+                <h3>Είστε σίγουροι ότι θέλετε να διαγράψετε το συγκεκριμένο βιβλίο?</h3>
+
+            </div>
+            <div class="page-content page-container" style="margin-top: 2%;margin-bottom: 0%;margin-right: 0px;margin-left: 0px;">
+                <div class="padding">
+                    <div class="card user-card-full" style="background-color: #002b54; border-radius: 1em;">
+                        <div class="card-block  text-white p-lg-3">
+                            <dl class="row">
+                                <dt class="col-sm-12 p-3">
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.AntiForgeryToken()
+
+
+
+                                        <span style="color: rgb(254,209,54)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                            </svg>
+                                        </span>
+                                        <input type="submit" value="Διαγραφή" class="btn btn-default" style="color: rgb(254,209,54)" />
+                                        if (ViewBag.Message != null)
+                                        {
+                                            <script type="text/javascript">
+
+                                                        window.onload = function () {
+                                                        alert("@ViewBag.Message");
+                                                        window.location.replace("/Stores");
+                                                        };
+
+                                            </script>
+                                        }
+                                    }
+                                </dt>
+                                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.title)</dt>
+                                <dd class="col-sm-9">@Html.DisplayFor(model => model.title)</dd>
+                                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.type)</dt>
+                                <dd class="col-sm-9">
+                                    <p>@Html.DisplayFor(model => model.type)</p>
+                                </dd>
+
+                                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.price)</dt>
+                               
+                                    <dd class="col-sm-9">@Html.DisplayFor(model => model.price)</dd>
+
+                                <dt class="col-sm-3 text-truncate">@Html.DisplayNameFor(model => model.advance)</dt>
+                              
+                                <dd class="col-sm-9">@Html.DisplayFor(model => model.advance)</dd>
+
+                                <dt class="col-sm-3 text-truncate">@Html.DisplayNameFor(model => model.royalty)</dt>
+                               
+                               <dd class="col-sm-9">@Html.DisplayFor(model => model.royalty)</dd>
+
+                                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ytd_sales)</dt>
+                              
+                                 
+                                <dd class="col-sm-9">@Html.DisplayFor(model => model.ytd_sales)</dd>
+                             
+                                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.notes)</dt>
+
+                                <dd class="col-sm-9">@Html.DisplayFor(model => model.notes)</dd>
+                            
+                                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.pubdate)</dt>
+                                
+                                <dd class="col-sm-9">@Html.DisplayFor(model => model.pubdate)</dd>                       
+                                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.publishers.pub_name)</dt>
+                                <dd class="col-sm-9">@Html.DisplayFor(model => model.publishers.pub_name)</dd>
+                                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.title_id)</dt>
+                                <dd class="col-sm-9">@Html.DisplayFor(model => model.title_id)</dd>
+
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,62 @@
+﻿@model BookStore.Models.titleauthor
+
+@{
+    ViewBag.Title = "Λεπτομέρειες TitleAuthor";
+}
+    <div class="card-deck shadow-none">
+        <div class="container pt-5">
+            <div class="row justify-content-center" style="position:sticky; top:auto">
+                <a style="padding-right:6px;" href="@Url.Action("/Index")" ; title="Επιστορφή"><img style=" width:24px;  height:24px;" src="/assets/img/return.svg" /></a>
+
+                <h3>Λεπτομέρειες</h3>
+
+            </div>
+            <div class="page-content page-container" style="margin-top: 2%;margin-bottom: 0%;margin-right: 0px;margin-left: 0px;">
+                <div class="padding">
+                    <div class="card user-card-full" style="background-color: #002b54; border-radius: 1em;">
+                        <div class="card-block  text-white p-lg-3">
+                            <dl class="row">
+                                <dt class="col-sm-12 p-3">
+                                    <a href="@Url.Action("Edit", new { au_id = Model.au_id, title_id =Model.title_id})" title="Επεξεργασία">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                        </svg>
+                                    </a>
+                                </dt>
+                                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.au_ord)</dt>
+                                @if (Model.au_ord == null)
+                                {
+                                    <dd class="col-sm-9">---</dd>
+
+                                }
+                                else
+                                {
+                                    <dd class="col-sm-9">@Html.DisplayFor(model => model.au_ord)</dd>
+                                }
+                                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.royaltyper)</dt>
+                                @if (Model.royaltyper == null)
+                                {
+                                    <dd class="col-sm-9">---</dd>
+
+                                }
+                                else
+                                {
+                                <dd class="col-sm-9">
+                                    <p>@Html.DisplayFor(model => model.royaltyper)</p>
+                                </dd>
+                                }
+
+                                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.au_id)</dt>
+                                <dd class="col-sm-9">@Html.DisplayFor(model => model.authors.au_lname)</dd>
+
+                                <dt class="col-sm-3 text-truncate">@Html.DisplayNameFor(model => model.titles.title)</dt>
+                                <dd class="col-sm-9">@Html.DisplayFor(model => model.titles.title)</dd>
+
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
