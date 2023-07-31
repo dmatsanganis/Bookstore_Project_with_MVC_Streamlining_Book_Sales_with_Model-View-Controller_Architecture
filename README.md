@@ -1,1 +1,3 @@
-# Bookstore_Project_with_MVC
+# Bookstore Project with MVC: Streamlining Book Sales with Model-View-Controller Architecture
+
+Bookstore Project with MVC is a streamlined e-commerce application designed for book sales. Developed in C#, it leverages the Model-View-Controller (MVC) architecture for clean, maintainable code. This project showcases efficient data handling, user-friendly interface design, and seamless database integration.
